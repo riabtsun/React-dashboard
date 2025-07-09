@@ -1,5 +1,5 @@
 import { Link } from 'react-router'
-import { menuItems } from '../../mocks/menu.ts'
+import { menuItems } from '../../mocks/data.ts'
 import './menu.scss'
 
 const Menu = () => {
