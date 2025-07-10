@@ -2,5 +2,10 @@
   "trailingComma": "es5",
   "tabWidth": 2,
   "semi": false,
-  "singleQuote": true
+  "singleQuote": true,
+  "endOfLine": "crlf",
+  "jsxSingleQuote": false,
+  "jsxBracketSameLine": false,
+  "bracketSpacing": true,
+  "jsxBracePresence": "never"
 }
