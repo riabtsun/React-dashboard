@@ -7,6 +7,8 @@ import Navbar from './components/navbar/Navbar.tsx'
 import Menu from './components/menu/Menu.tsx'
 import Login from './pages/login/Login.tsx'
 import './styles/global.scss'
+import User from './pages/user/User.tsx'
+import Product from './pages/product/Product.tsx'
 
 const Layout = () => {
   return (
@@ -41,6 +43,14 @@ const router = createBrowserRouter([
       {
         path: '/products',
         element: <Products />,
+      },
+      {
+        path: 'users/:id',
+        element: <User />,
+      },
+      {
+        path: 'products/:id',
+        element: <Product />,
       },
     ],
   },
