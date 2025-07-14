@@ -19,13 +19,17 @@ const DataTable: FC<IDataTableProps> = ({ columns, rows, slug }) => {
     field: 'action',
     headerName: 'Action',
     width: 200,
+    cellClassName: 'action--cell',
     renderCell: (params) => {
       return (
         <div className="action">
-          <Link to={`/${slug}/${params.row.id}`}>
+          <Link className="action-item" to={`/${slug}/${params.row.id}`}>
             <img src="/view.svg" alt="view" />
           </Link>
-          <div className="delete" onClick={() => handleDelete(params.row.id)}>
+          <div
+            className="delete action-item"
+            onClick={() => handleDelete(params.row.id)}
+          >
             <img src="/delete.svg" alt="delete" />
           </div>
         </div>

@@ -18,3 +18,14 @@ export interface IUserDeal {
   email: string
   amount: string
 }
+
+export interface IProduct {
+  id: number
+  img: string
+  title: string
+  color: string
+  producer: string
+  price: string
+  createdAt: string
+  inStock?: boolean
+}

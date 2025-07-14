@@ -11,8 +11,25 @@
     border-radius: 50%;
     object-fit: cover;
   }
+  
+  .action--cell {
+    display: flex;
+    align-items: center;
+  }
 
   .action {
     display: flex;
+    align-items: center;
+    column-gap: 15px;
+
+    .action-item {
+      display: flex;
+    }
+
+    img {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
   }
 }

@@ -1,6 +1,9 @@
 import DataTable from '../../components/dataTable/DataTable.tsx'
 import { GridColDef } from '@mui/x-data-grid'
 import { userRows } from '../../mocks/data.ts'
+import './users.scss'
+import { useState } from 'react'
+import Add from '../../components/add/Add.tsx'
 
 const columns: GridColDef<(typeof userRows)[number]>[] = [
   { field: 'id', headerName: 'ID', width: 90 },
@@ -64,13 +67,15 @@ const columns: GridColDef<(typeof userRows)[number]>[] = [
 ]
 
 const Users = () => {
+  const [open, setOpen] = useState<boolean>(false)
   return (
     <div className="users">
       <div className="info">
         <h1>Users</h1>
-        <button>Add new user</button>
+        <button onClick={() => setOpen(true)}>Add new user</button>
       </div>
       <DataTable slug="users" columns={columns} rows={userRows} />
+      {open && <Add slug="user" columns={columns} setOpen={setOpen} />}
     </div>
   )
 }
