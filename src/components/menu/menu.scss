@@ -1,6 +1,14 @@
 @use "../../styles/vars" as *;
+@use "../../styles/responsive" as *;
+
+.menuContainer {
+  position: relative;
+}
 
 .menu {
+  position: sticky;
+  top: 10px;
+
   .item {
     display: flex;
     flex-direction: column;
@@ -11,7 +19,10 @@
       font-size: 12px;
       font-weight: 200;
       color: $soft-color;
-      text-transform: capitalize;
+      text-transform: uppercase;
+      @include lg {
+        display: none;
+      }
     }
 
     .listItem {
@@ -24,6 +35,12 @@
       &:hover {
         background-color: $soft-bg;
         transition: .3s;
+      }
+
+      .listItemTitle {
+        @include lg {
+          display: none;
+        }
       }
     }
   }

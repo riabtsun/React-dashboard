@@ -638,6 +638,7 @@ export const singleUser = {
     },
   ],
 }
+
 export const singleProduct = {
   id: 1,
   title: 'Playstation 5 Digital Edition',
