@@ -1,17 +1,17 @@
-export interface ListItem {
+export type ListItem = {
   id: number
   title: string
   url: string
   icon: string
 }
 
-export interface IMenu {
+export type Menu = {
   id: number
   title: string
   listItems: ListItem[]
 }
 
-export interface IUserDeal {
+export type UserDeal = {
   id: number
   img: string
   username: string
@@ -19,7 +19,7 @@ export interface IUserDeal {
   amount: string
 }
 
-export interface IProduct {
+export type Product = {
   id: number
   img: string
   title: string

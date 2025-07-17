@@ -1,6 +1,6 @@
-import { IMenu, IProduct, IUserDeal } from './types.ts'
+import { Menu, Product, UserDeal } from './types.ts'
 
-export const menuItems: IMenu[] = [
+export const menuItems: Menu[] = [
   {
     id: 1,
     title: 'main',
@@ -117,7 +117,7 @@ export const menuItems: IMenu[] = [
   },
 ]
 
-export const topDealUsers: IUserDeal[] = [
+export const topDealUsers: UserDeal[] = [
   {
     id: 1,
     img: 'https://images.pexels.com/photos/8405873/pexels-photo-8405873.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load',
@@ -457,7 +457,7 @@ export const userRows = [
   },
 ]
 
-export const products: IProduct[] = [
+export const products: Product[] = [
   {
     id: 1,
     img: 'https://store.sony.com.au/on/demandware.static/-/Sites-sony-master-catalog/default/dw1b537bbb/images/PLAYSTATION5W/PLAYSTATION5W.png',

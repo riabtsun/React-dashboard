@@ -1,3 +1,4 @@
+import { FC } from 'react'
 import './single.scss'
 import {
   Legend,
@@ -8,7 +9,6 @@ import {
   XAxis,
   YAxis,
 } from 'recharts'
-import { FC } from 'react'
 
 interface ISingleProps {
   id: number
