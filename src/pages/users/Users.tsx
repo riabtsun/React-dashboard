@@ -1,9 +1,10 @@
 import DataTable from '../../components/dataTable/DataTable.tsx'
+import Add from '../../components/add/Add.tsx'
+import { useState } from 'react'
 import { GridColDef } from '@mui/x-data-grid'
 import { userRows } from '../../mocks/data.ts'
+import { useQuery } from '@tanstack/react-query'
 import './users.scss'
-import { useState } from 'react'
-import Add from '../../components/add/Add.tsx'
 
 const columns: GridColDef<(typeof userRows)[number]>[] = [
   { field: 'id', headerName: 'ID', width: 90 },
@@ -68,14 +69,21 @@ const columns: GridColDef<(typeof userRows)[number]>[] = [
 
 const Users = () => {
   const [open, setOpen] = useState<boolean>(false)
+
+  const { isLoading, data } = useQuery({
+    queryKey: ['allusers'],
+    queryFn: async () => {
+      return await fetch('http://localhost:8800/api/users').then((res) => res.json())
+    },
+  })
   return (
     <div className="users">
       <div className="info">
         <h1>Users</h1>
         <button onClick={() => setOpen(true)}>Add new user</button>
       </div>
-      <DataTable slug="users" columns={columns} rows={userRows} />
-      {open && <Add slug="user" columns={columns} setOpen={setOpen} />}
+      {isLoading ? 'Loading...' : <DataTable slug="users" columns={columns} rows={data} />}
+      {open && <Add slug="user" columns={columns} setOpen={setOpen} userRows={data} />}
     </div>
   )
 }

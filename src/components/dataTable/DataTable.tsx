@@ -3,6 +3,7 @@ import { GridToolbar } from '@mui/x-data-grid/internals'
 import './dataTable.scss'
 import { FC } from 'react'
 import { Link } from 'react-router'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 
 interface IDataTableProps {
   columns: GridColDef[]
@@ -10,11 +11,23 @@ interface IDataTableProps {
   slug: string
 }
 
-const handleDelete = (id: number) => {
-  console.log(id)
-}
 
 const DataTable: FC<IDataTableProps> = ({ columns, rows, slug }) => {
+
+  const queryClient = useQueryClient()
+
+  const mutation = useMutation({
+    mutationFn: async (id: number) => {
+      return await fetch(`http://localhost:8800/api/${slug}/${id}`, { method: 'delete' })
+    },
+    onSuccess: () => {
+      return queryClient.invalidateQueries({ queryKey: [`all${slug}`] })
+    },
+  })
+
+  const handleDelete = (id: number) => {
+    mutation.mutate(id)
+  }
   const actionColumn: GridColDef = {
     field: 'action',
     headerName: 'Action',
@@ -36,6 +49,8 @@ const DataTable: FC<IDataTableProps> = ({ columns, rows, slug }) => {
       )
     },
   }
+
+
   return (
     <div className="dataTable">
       <DataGrid
