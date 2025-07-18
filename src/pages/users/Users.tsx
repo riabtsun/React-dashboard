@@ -2,11 +2,10 @@ import DataTable from '../../components/dataTable/DataTable.tsx'
 import Add from '../../components/add/Add.tsx'
 import { useState } from 'react'
 import { GridColDef } from '@mui/x-data-grid'
-import { userRows } from '../../mocks/data.ts'
 import { useQuery } from '@tanstack/react-query'
 import './users.scss'
 
-const columns: GridColDef<(typeof userRows)[number]>[] = [
+const columns: GridColDef[] = [
   { field: 'id', headerName: 'ID', width: 90 },
   {
     field: 'img',
